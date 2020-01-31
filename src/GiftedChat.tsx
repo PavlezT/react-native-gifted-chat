@@ -656,6 +656,7 @@ class GiftedChat<TMessage extends IMessage = IMessage> extends React.Component<
           messagesContainerStyle,
         ]}
       >
+        {this.renderChatFooter()}
         <MessageContainer<TMessage>
           {...messagesContainerProps}
           invertibleScrollViewProps={this.invertibleScrollViewProps}
@@ -663,7 +664,6 @@ class GiftedChat<TMessage extends IMessage = IMessage> extends React.Component<
           forwardRef={this._messageContainerRef}
           isTyping={this.props.isTyping}
         />
-        {this.renderChatFooter()}
       </View>
     )
 
