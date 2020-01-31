@@ -73,47 +73,47 @@ export default class InputToolbar extends React.Component<
   }
 
   state = {
-    position: 'absolute',
+    position: 'relative',
   }
 
   keyboardWillShowListener?: EmitterSubscription = undefined
   keyboardWillHideListener?: EmitterSubscription = undefined
 
-  componentDidMount() {
-    this.keyboardWillShowListener = Keyboard.addListener(
-      'keyboardWillShow',
-      this.keyboardWillShow,
-    )
-    this.keyboardWillHideListener = Keyboard.addListener(
-      'keyboardWillHide',
-      this.keyboardWillHide,
-    )
-  }
+  // componentDidMount() {
+  //   this.keyboardWillShowListener = Keyboard.addListener(
+  //     'keyboardWillShow',
+  //     this.keyboardWillShow,
+  //   )
+  //   this.keyboardWillHideListener = Keyboard.addListener(
+  //     'keyboardWillHide',
+  //     this.keyboardWillHide,
+  //   )
+  // }
 
-  componentWillUnmount() {
-    if (this.keyboardWillShowListener) {
-      this.keyboardWillShowListener.remove()
-    }
-    if (this.keyboardWillHideListener) {
-      this.keyboardWillHideListener.remove()
-    }
-  }
+  // componentWillUnmount() {
+  //   if (this.keyboardWillShowListener) {
+  //     this.keyboardWillShowListener.remove()
+  //   }
+  //   if (this.keyboardWillHideListener) {
+  //     this.keyboardWillHideListener.remove()
+  //   }
+  // }
 
-  keyboardWillShow = () => {
-    if (this.state.position !== 'relative') {
-      this.setState({
-        position: 'relative',
-      })
-    }
-  }
+  // keyboardWillShow = () => {
+  //   if (this.state.position !== 'relative') {
+  //     this.setState({
+  //       position: 'relative',
+  //     })
+  //   }
+  // }
 
-  keyboardWillHide = () => {
-    if (this.state.position !== 'absolute') {
-      this.setState({
-        position: 'absolute',
-      })
-    }
-  }
+  // keyboardWillHide = () => {
+  //   if (this.state.position !== 'absolute') {
+  //     this.setState({
+  //       position: 'absolute',
+  //     })
+  //   }
+  // }
 
   renderActions() {
     const { containerStyle, ...props } = this.props
