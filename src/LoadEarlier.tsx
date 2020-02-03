@@ -59,7 +59,7 @@ export default class LoadEarlier extends React.Component<LoadEarlierProps> {
   static defaultProps = {
     onLoadEarlier: () => {},
     isLoadingEarlier: false,
-    label: 'Load earlier messages',
+    labelLoadEarlier: 'Load earlier messages',
     containerStyle: {},
     wrapperStyle: {},
     textStyle: {},
@@ -71,7 +71,7 @@ export default class LoadEarlier extends React.Component<LoadEarlierProps> {
   static propTypes = {
     onLoadEarlier: PropTypes.func,
     isLoadingEarlier: PropTypes.bool,
-    label: PropTypes.string,
+    labelLoadEarlier: PropTypes.string,
     containerStyle: ViewPropTypes.style,
     wrapperStyle: ViewPropTypes.style,
     textStyle: PropTypes.any,
@@ -84,14 +84,14 @@ export default class LoadEarlier extends React.Component<LoadEarlierProps> {
     if (this.props.isLoadingEarlier === false) {
       return (
         <Text style={[styles.text, this.props.textStyle]}>
-          {this.props.label}
+          {this.props.labelLoadEarlier}
         </Text>
       )
     }
     return (
       <View>
         <Text style={[styles.text, this.props.textStyle, { opacity: 0 }]}>
-          {this.props.label}
+          {this.props.labelLoadEarlier}
         </Text>
         <ActivityIndicator
           color={this.props.activityIndicatorColor!}
