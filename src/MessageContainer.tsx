@@ -148,23 +148,26 @@ export default class MessageContainer<
     this.detachKeyboardListeners()
   }
 
-  componentDidUpdate(prevProps: MessageContainerProps<TMessage>) {
-    if (
-      prevProps.messages &&
-      prevProps.messages.length === 0 &&
-      this.props.messages &&
-      this.props.messages.length > 0
-    ) {
-      this.detachKeyboardListeners()
-    } else if (
-      prevProps.messages &&
-      this.props.messages &&
-      prevProps.messages.length > 0 &&
-      this.props.messages.length === 0
-    ) {
-      this.attachKeyboardListeners()
+  static getDerivedStateFromProps(newProps, state) {   
+        if (!state.messagesLength || newProps.messages.length != state.messagesLength) {
+            state.messagesLength = newProps.messages.length;
+            return state;
+        }
+
+        return null;
+        // if (newProps.messages &&
+        //     newProps.messages.length === 0 &&
+        //     this.props.messages &&
+        //     this.props.messages.length > 0) {
+        //     this.detachKeyboardListeners();
+        // }
+        // else if (prevProps.messages &&
+        //     this.props.messages &&
+        //     prevProps.messages.length > 0 &&
+        //     this.props.messages.length === 0) {
+        //     this.attachKeyboardListeners();
+        // }
     }
-  }
 
   attachKeyboardListeners = () => {
     const { invertibleScrollViewProps: invertibleProps } = this.props
