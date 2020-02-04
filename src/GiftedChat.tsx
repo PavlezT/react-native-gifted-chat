@@ -433,26 +433,23 @@ class GiftedChat<TMessage extends IMessage = IMessage> extends React.Component<
     this.setIsMounted(false)
   }
 
-  componentDidUpdate(prevProps: GiftedChatProps<TMessage> = {}) {
-    const { messages, text, inverted } = this.props
-
-    if (this.props !== prevProps) {
-      this.setMessages(messages || [])
+  static getDerivedStateFromProps(newProps = {}, state) {
+        state.messages = newProps.messages;
+        return null;
+        // const { messages, text, inverted } = this.props;
+        // if (this.props !== prevProps) {
+        //     this.setMessages(messages || []);
+        // }
+        // if (inverted === false &&
+        //     messages &&
+        //     prevProps.messages &&
+        //     messages.length !== prevProps.messages.length) {
+        //     setTimeout(() => this.scrollToBottom(false), 200);
+        // }
+        // if (text !== prevProps.text) {
+        //     this.setTextFromProp(text);
+        // }
     }
-
-    if (
-      inverted === false &&
-      messages &&
-      prevProps.messages &&
-      messages.length !== prevProps.messages.length
-    ) {
-      setTimeout(() => this.scrollToBottom(false), 200)
-    }
-
-    if (text !== prevProps.text) {
-      this.setTextFromProp(text)
-    }
-  }
 
   initLocale() {
     if (
