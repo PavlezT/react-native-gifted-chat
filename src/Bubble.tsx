@@ -475,7 +475,7 @@ export default class Bubble<
     const {
       position,
       containerStyle,
-      wrapperStyle,
+      messageStyles,
       bottomContainerStyle,
     } = this.props
     return (
@@ -488,7 +488,7 @@ export default class Bubble<
         <View
           style={[
             styles[position].wrapper,
-            wrapperStyle && wrapperStyle[position],
+            messageStyles && messageStyles[position],
             this.styledBubbleToNext(),
             this.styledBubbleToPrevious(),
           ]}
