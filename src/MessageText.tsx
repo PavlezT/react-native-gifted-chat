@@ -178,7 +178,7 @@ export default class MessageText<
         <ParsedText
           style={[
             styles[this.props.position].text,
-            this.props.textStyle && this.props.textStyle[this.props.position],
+            this.props.messageTextStyle && this.props.messageTextStyle[this.props.position],
             this.props.customTextStyle,
           ]}
           parse={[
