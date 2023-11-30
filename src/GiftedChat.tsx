@@ -583,7 +583,7 @@ class GiftedChat<TMessage extends IMessage = IMessage> extends React.Component<
 
   safeAreaIphoneX = (bottomOffset: number) => {
     if (isIphoneX()) {
-      return bottomOffset === this._bottomOffset ? 33 : bottomOffset
+      return bottomOffset === this._bottomOffset ? 75 : bottomOffset
     }
     return bottomOffset
   }
